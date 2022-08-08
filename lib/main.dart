@@ -11,15 +11,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("App"),),
+        appBar: AppBar(
+          leading: Icon(Icons.menu),
+          title: Text("App"),),
         body: Container(
           width: double.infinity,
           height: 50,
           margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Colors.blue,
               border: Border.all(color: Colors.black)
           ),
+          child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text("Button",
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.w700
+                  ),
+                ),
+                ElevatedButton(onPressed: (){}, child: Icon(Icons.add))
+              ],
+            ),
         ),
         bottomNavigationBar: BottomAppBar(
           child :SizedBox(
