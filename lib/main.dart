@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
           width: double.infinity,
-          height: 200,
-          margin: EdgeInsets.all(20),
+          height: 150,
+          margin: EdgeInsets.all(10),
           decoration: BoxDecoration(
               border: Border.all(color: Colors.black)
           ),
@@ -68,8 +68,9 @@ class MyApp extends StatelessWidget {
             ),
         ),
         bottomNavigationBar: BottomAppBar(
-          child :SizedBox(
-            height: 70,
+          child :Container(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            height: 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
