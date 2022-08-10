@@ -5,8 +5,15 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var a = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,9 @@ class MyApp extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: (){
-
+            setState((){
+              a++;
+            });
           },
         ),
         appBar: AppBar(
@@ -68,7 +77,7 @@ class MyApp extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Icon(Icons.favorite_border),
-                              Text("4")
+                              Text(a.toString())
                             ],
                           )
                         ],
