@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: (){
+
+          },
+        ),
         appBar: AppBar(
           leading: Icon(Icons.menu, color:Colors.black),
           title: Text("금호동 3가",
@@ -18,79 +25,61 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           shadowColor: Colors.transparent,
         ),
-        body: Container(
-          width: double.infinity,
-          height: 150,
-          margin: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.black)
-          ),
-          child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.network('https://mdl.artvee.com/ft/12140po.jpg'),
-                Container(
-                  width: 150,
-                  margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                   children: [
-                     Text("캐논 DSLR 100D",
-                       style: TextStyle(
-                           color: Colors.blue,
-                           fontWeight: FontWeight.w700
-                       ),
-                     ),
-                     Text("성동구 행당동",
-                       style: TextStyle(
-                           color: Colors.blue,
-                           fontWeight: FontWeight.w700
-                       ),
-                     ),
-                     Text("210,000원",
-                       style: TextStyle(
-                           color: Colors.blue,
-                           fontWeight: FontWeight.w700
-                       ),
-                     ),
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.end,
-                       children: [
-                         Icon(Icons.favorite_border),
-                         Text("4")
-                       ],
-                     )
-                   ],
-                  ),
+        body: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (c, i){
+              return Container(
+                width: double.infinity,
+                height: 150,
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black)
                 ),
-              ],
-            ),
-        ),
+                child:
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.network('https://mdl.artvee.com/ft/12140po.jpg'),
+                    Container(
+                      width: 150,
+                      margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("캐논 DSLR 100D",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w700
+                            ),
+                          ),
+                          Text("성동구 행당동",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w700
+                            ),
+                          ),
+                          Text("210,000원",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w700
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(Icons.favorite_border),
+                              Text("4")
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }),
         bottomNavigationBar: BottomNav()
       ),
-    );
-  }
-}
-
-class BottomNav extends StatelessWidget {
-  const BottomNav({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomAppBar(
-        child :Container(
-          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-          height: 40,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.phone),
-              Icon(Icons.message),
-              Icon(Icons.contact_page),
-            ],
-          ),
-        )
     );
   }
 }
