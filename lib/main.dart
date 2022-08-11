@@ -26,7 +26,42 @@ class _MyAppState extends State<MyApp> {
               a++;
             });
             showDialog(context: context, builder: (context){
-              return Dialog(child: Text("dialog"));
+              return Dialog(child:
+                Container(
+                  height: 100,
+                  margin: EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Contact",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            color: Colors.black),),
+                      Text("02123456",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 20,
+                            color: Colors.black,
+                            decoration: TextDecoration.underline
+                        ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("Cancel",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: Colors.blue),),
+                          Text("OK",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: Colors.blue),)
+                        ],
+                      )
+                    ],
+                  )));
             });
           },
         ),
